@@ -2,8 +2,8 @@ package com.sunnyweather.android.logic.model
 
 import com.google.gson.annotations.SerializedName
 
-class PlaceResponse(val status: String, val places: List<Place>)
+class PlaceResponse(val code: String, val charge: Boolean, val msg: String, val result: CityResult)
 
-class Place(val name: String, val location: Location, @SerializedName("formatted_address") val address: String)
+class CityResult(val status: Int, val msg: String, @SerializedName("result") val cityList: List<City>)
 
-class Location(val lng: String, val lat: String)
+class City(val cityid: Int, val parentid: Int, val citycode: String, val city: String)

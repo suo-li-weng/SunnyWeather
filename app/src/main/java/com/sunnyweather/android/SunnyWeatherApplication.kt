@@ -7,7 +7,7 @@ import android.content.Context
 class SunnyWeatherApplication : Application() {
 
     companion object {
-
+        //https://wx.jdcloud.com/market/datas/26/11065 京东万象免费API
         const val TOKEN = "" // 填入你申请到的令牌值
 
         @SuppressLint("StaticFieldLeak")

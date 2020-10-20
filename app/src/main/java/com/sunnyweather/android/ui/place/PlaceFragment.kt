@@ -31,9 +31,8 @@ class PlaceFragment : Fragment() {
         if (activity is MainActivity && viewModel.isPlaceSaved()) {
             val place = viewModel.getSavedPlace()
             val intent = Intent(context, WeatherActivity::class.java).apply {
-                putExtra("location_lng", place.location.lng)
-                putExtra("location_lat", place.location.lat)
-                putExtra("place_name", place.name)
+                putExtra("place_name", place.city)
+                putExtra("city_id", place.cityid)
             }
             startActivity(intent)
             activity?.finish()
@@ -43,6 +42,7 @@ class PlaceFragment : Fragment() {
         recyclerView.layoutManager = layoutManager
         adapter = PlaceAdapter(this, viewModel.placeList)
         recyclerView.adapter = adapter
+        viewModel.searchPlaces("")
         searchPlaceEdit.addTextChangedListener { editable ->
             val content = editable.toString()
             if (content.isNotEmpty()) {
